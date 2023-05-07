@@ -18,16 +18,17 @@ const app = express();
 
 const bcryptSalt = bcrypt.genSaltSync(10);
 const jwtSecret = 'fasefraw4r5r3wq45wdfgw34twdfg';
-const bucket = 'dawid-booking-app';
+const bucket = 'booking-app';
 
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname+'/uploads'));
+
 app.use(cors({
   credentials: true,
-  origin: 'http://127.0.0.1:5173',
+  origin: 'http://localhost:5173'
 }));
-
+//'http://127.0.0.1:5173/',
 async function uploadToS3(path, originalFilename, mimetype) {
   const client = new S3Client({
     region: 'us-east-1',
@@ -57,6 +58,10 @@ function getUserDataFromReq(req) {
     });
   });
 }
+
+// moongose.connect(process.env.MONGO_URL);
+//booking
+//7jRJj2WuSXujkPVe
 
 app.get('/api/test', (req,res) => {
   mongoose.connect(process.env.MONGO_URL);
