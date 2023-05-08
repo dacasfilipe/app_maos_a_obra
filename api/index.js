@@ -60,8 +60,7 @@ function getUserDataFromReq(req) {
 }
 
 // moongose.connect(process.env.MONGO_URL);
-//booking
-//7jRJj2WuSXujkPVe
+
 
 app.get('/api/test', (req,res) => {
   mongoose.connect(process.env.MONGO_URL);
