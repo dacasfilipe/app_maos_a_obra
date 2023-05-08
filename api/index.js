@@ -64,6 +64,16 @@ function getUserDataFromReq(req) {
 }
 
 // moongose.connect(process.env.MONGO_URL);
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => {
+    console.log('Conectado ao banco de dados MongoDB local');
+  })
+  .catch((err) => {
+    console.error('Erro ao conectar ao MongoDB:', err);
+  });
 
 
 app.get('/api/test', (req,res) => {
