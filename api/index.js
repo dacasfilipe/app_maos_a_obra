@@ -13,6 +13,10 @@ const multer = require('multer');
 const fs = require('fs');
 const mime = require('mime-types');
 
+//campos desconhecidos serão ignorados do mongoose durante as consultas
+mongoose.set('strictQuery', true);
+
+//chama as variáveis de ambiente  de configuração da api
 require('dotenv').config();
 const app = express();
 
